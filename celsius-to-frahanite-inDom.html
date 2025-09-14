@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      * {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      h1 {
+        text-transform: capitalizes;
+      }
+      body {
+        display: grid;
+        place-items: center;
+        height: 100vh;
+      }
+      section {
+        border-radius: 10px;
+        display: grid;
+        place-items: center;
+        width: 500px;
+        height: 600px;
+        background-color: rgb(190, 255, 255);
+        box-shadow: 1px 3px 12px 2px rgba(55, 0, 0, 0.25);
+      } /* x-axis, y-axis, blurSpread, blurRadius.*/
+
+      .main {
+        width: 400px;
+        height: 400px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+      }
+      input,
+      button {
+        width: 100%;
+        box-sizing: border-box;
+      }
+      input {
+        padding: 30px;
+        border-radius: 5px;
+        font-size: 17px;
+        border: none;
+      }
+
+      input:focus {
+        outline: 1px solid rgb(101, 236, 236);
+      }
+      button {
+        padding: 20px;
+        background-color: rgb(101, 236, 236);
+        border: none;
+        border-radius: 5px;
+        font-weight: bold;
+        font-size: 18px;
+      }
+
+      .output {
+        display: flex;
+        align-self: flex-start;
+        font-size: 30px;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <div class="main">
+        <h1>convert celsius to fahrenheit</h1>
+        <input
+          type="text"
+          class="js-input"
+          placeholder="Enter value 
+        "
+        />
+        <button onclick="calculation()" class="submit-btn">Submit</button>
+        <p class="output"></p>
+      </div>
+    </section>
+    <script>
+      const inputValue = document.querySelector(".js-input");
+      inputValue.addEventListener("keydown", function (event) {
+        if (event.key === "Enter") {
+          calculation();
+        }
+      });
+      function calculation() {
+        const calValue = inputValue.value;
+
+        const result = (calValue * 9) / 5 + 32;
+        document.querySelector(".output").innerHTML = `
+         ${calValue}°C- ${result}°F`;
+      }
+    </script>
+  </body>
+</html>
